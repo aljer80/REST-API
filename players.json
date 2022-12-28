@@ -1,0 +1,18 @@
+
+[
+    
+    {
+        "id": "player1",
+        "side": "forehand",
+        "sex": "male",
+        "level": "intermediate"
+    },
+
+    {
+        "id": "player2",
+        "side": "backhand",
+        "sex": "female",
+        "level": "advanced"
+    }
+
+]
