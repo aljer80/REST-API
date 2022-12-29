@@ -1,5 +1,8 @@
-GET http://localhost3000/api/players/1 
+GET http://localhost3000/api/players
 Content-Type: application/json 
 
 ###
+
+GET http://localhost3000/api/players/1 
+Content-Type: application/json 
 

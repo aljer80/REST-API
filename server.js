@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const port = 3000;              //variabel för att lagra porten. Behöver man inte göra, men är vanligt. 
-const fs = require("fs");
+//const port = 3000;              //variabel för att lagra porten. Behöver man inte göra, men är vanligt. 
+//const fs = require("fs");
 
 //Definierar en endpoint. Och app.get bestämmer att det är request-metoden get endpointen ska lyssna efter. 
 app.get("/api/players", (req, res) => {         
