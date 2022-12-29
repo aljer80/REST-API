@@ -6,7 +6,12 @@ Beskrivning av projektet:
 Krav som är uppfyllda: 
 <br>
 info om hur projektet byggs och körs:
-<br>
+<br> 
+1. Klona ner projektet  <br>
+2. skriv npm install  <br>
+3. skriv sedan npm start  <br>
+4. 
+
 <!-- 1.1 Level 1 and 2: Initiation. <br>
 1.2 Level 3 and 4: Intermediate. <br>
 1.3 Level 5: Advanced. <br>
