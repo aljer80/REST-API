@@ -1,18 +1,13 @@
 const express = require("express");
 const app = express();
-//const port = 3000;              //variabel för att lagra porten. Behöver man inte göra, men är vanligt. 
-//const fs = require("fs");
+const routes = require("./routes/players");  //här är sökvägen, och vi måste även läsa in innhållet (gör vi med require-funktionen)
 
-//Definierar en endpoint. Och app.get bestämmer att det är request-metoden get endpointen ska lyssna efter. 
-app.get("/api/players", (req, res) => {         
-    res.status(200).send("Här är alla spelare " + req.params);
-});
-
-
-app.get("/api/players/:id", (req, res) => {         
-    res.status(200).send("Här är en specifik spelare med id " + req.params.id);
- });
-
+app.use(express.json());
+app.use('/', routes);           //för att använda routes. När vår app får ett anrop vet den att den ska titta i routes för att veta hur den ska hantera det
 
 //startar server-applikationen
-app.listen(3000, () => console.log("Server is up and running"));
+const listener = app.listen(process.env.PORT || 3000, () => {
+    console.log("Server is up and running" + listener.adress().port)
+});        //processen har en miljö och den är tilldelad
+
+//req.body innehåller post- och put-informationnpm start
