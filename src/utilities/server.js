@@ -12,6 +12,3 @@ async function main() {
   app.listen(3000, () => console.log('Server is running on http://localhost:3000'));
 }
 
-// mongodb+srv://<username>:<password>@cluster0.fomqwh0.mongodb.net/?retryWrites=true&w=majority  username:jernberg.alexandra@gmail.com password: gfn2dC8T@2FWG@d
-//mongodb://Alexandra:gfn2dC8T%402FWG%40d@cluster0.fomqwh0.mongodb.net/?retryWrites=true&w=majority
-

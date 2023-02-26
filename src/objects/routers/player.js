@@ -10,7 +10,7 @@ playerRouter.get("", getPlayers);
 playerRouter.get("/byLevel/:id", getPlayersByLevel);    //
 playerRouter.get("/:id", getPlayerById);
 
-playerRouter.put("/:id", userIsLoggedIn, userLoggedInAsAdmin, validate(productJoiSchema), updatePlayer);
+playerRouter.put("/:id", userIsLoggedIn, userLoggedInAsAdmin, validate(productJoiSchema), updatePlayer); //Får felmeddelande som pekar på den här raden: "ReferenceError: userIsLoggedIn is not defined"
 
 playerRouter.post("", userIsLoggedIn, userLoggedInAsAdmin, validate(productJoiSchema), createPlayer);
 playerRouter.post("/register", validate(userJoiSchema), registerUser);
