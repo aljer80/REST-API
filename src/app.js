@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieSession = require("cookie-session");
-const { userRouter } = require("REST-API\src\resources\player\user.router.js");
+const { playerRouter } = require("./resources/player/user.router");
 
 app.use(express.json());
 app.use(cookieSession({
@@ -11,9 +11,6 @@ app.use(cookieSession({
 }));
 
 
-app.use("/api/users", userRouter);
-
- 
-// Här är ett bra ställe att lägga till routers och andra middlewares.
+app.use("/api/users", playerRouter); //Stämmer denna url?
 
 module.exports = { app };

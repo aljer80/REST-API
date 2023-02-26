@@ -1,7 +1,8 @@
-const { PlayerModel } = require("REST-API\src\resources\player\player.model.js");
+const { PlayerModel } = require("./user.model");
 const bcrypt = require("bcrypt"); 
 
 
+//funktion för att registrera och skapa en användare/spelare och kryptera lösenordet
 async function registerUser(req, res, next) {
     try{ 
         const existingUser = await PlayerModel.findOne({username: req.body.username})
@@ -19,10 +20,10 @@ async function registerUser(req, res, next) {
         res.status(400).json(error);
     }};
 
+
+//funktion för att logga in, cookie skapas när req.session manipuleras
 async function loginUser(req, res, next) {
-
     const { username, password } = req.body;
-
     const user = await PlayerModel.findOne({username});
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
@@ -33,9 +34,11 @@ async function loginUser(req, res, next) {
         res.status(200).json(user);
 }
 
+//funktion för att logga ut
 async function logoutUser(req, res, next){
     req.session = null;
     res.status(204).json();
 }
+
 
 module.exports = { registerUser, loginUser, logoutUser };
