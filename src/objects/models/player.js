@@ -13,7 +13,7 @@ const PlayerSchema = new Schema({
 
 });
 
-const PlayerModel = models.user || model("player", PlayerSchema);  //models.player? vad står .user för? ska det vara .player?
+const PlayerModel = models.player || model("player", PlayerSchema);
 
 const userJoiSchema = Joi.object({
     username: Joi.string().email().required(), 

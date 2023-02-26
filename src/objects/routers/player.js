@@ -1,7 +1,7 @@
 const express = require("express");
-const { registerUser, loginUser, logoutUser } = require("./user.controller");
-const { userJoiSchema } = require ("./user.model");
-const { validate } = require ("REST-API\src\middlewares.js"); //lägg in rätt sökväg här
+const { registerUser, loginUser, logoutUser } = require("../controllers/player.js");
+const { userJoiSchema } = require ("../models/player.js");
+const { validate } = require ("../../middlewares/middlewares.js"); 
 const playerRouter = express.Router();
 
 

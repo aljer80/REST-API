@@ -2,9 +2,9 @@
   "name": "rest-api",
   "version": "1.0.0",
   "description": "API med",
-  "main": "server.js",
+  "main": "./src/utilities/server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon ./src/utilities/server.js"
   },
   "repository": {
     "type": "git",

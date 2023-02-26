@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieSession = require("cookie-session");
-const { playerRouter } = require("./resources/player/user.router");
+const { playerRouter } = require("../objects/routers/player.js");
 
 app.use(express.json());
 app.use(cookieSession({
@@ -11,6 +11,6 @@ app.use(cookieSession({
 }));
 
 
-app.use("/api/users", playerRouter); //Stämmer denna url?
+app.use("/api/players", playerRouter); 
 
 module.exports = { app };
