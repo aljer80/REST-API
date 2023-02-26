@@ -1,14 +1,14 @@
-const { UserModel } = require("REST-API\src\resources\player\player.model.js");
+const { PlayerModel } = require("REST-API\src\resources\player\player.model.js");
 const bcrypt = require("bcrypt"); 
 
 
 async function registerUser(req, res, next) {
     try{ 
-        const existingUser = await UserModel.findOne({username: req.body.username})
+        const existingUser = await PlayerModel.findOne({username: req.body.username})
         if(existingUser) {
             return res.status(409).json("User already exists.");
         }
-        const user = await new UserModel(req.body);
+        const user = await new PlayerModel(req.body);
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         user.password = hashedPassword;
         await user.save();
@@ -23,7 +23,7 @@ async function loginUser(req, res, next) {
 
     const { username, password } = req.body;
 
-    const user = await UserModel.findOne({username});
+    const user = await PlayerModel.findOne({username});
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json("Wrong username or password")

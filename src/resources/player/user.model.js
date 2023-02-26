@@ -1,17 +1,23 @@
 const { Schema, model, models } = require("mongoose");
 const Joi = require("joi"); 
 
-const UserSchema = new Schema({
+const PlayerSchema = new Schema({
     username: {type: String, required: true},
     password: {type: String, required: true, minLength: 6},
-    isAdmin: {type: Boolean, default: false}
+    isAdmin: {type: Boolean, default: false},
+    firstname: {type: String, required: true},
+    lastname:{type: String, required: true},
+    gender: {type: String, required: true},
+    side: {type: String, required: true},
+    level: {type: String, required: true}
+
 });
 
-const UserModel = models.user || model("user", UserSchema);
+const PlayerModel = models.user || model("player", PlayerSchema);  //models.player? vad står .user för?
 
 const userJoiSchema = Joi.object({
     username: Joi.string().email().required(), 
     password: Joi.string().min(6).required()   
 });
 
-module.exports = { UserModel, userJoiSchema };
+module.exports = { PlayerModel, userJoiSchema };
