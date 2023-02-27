@@ -28,7 +28,8 @@ async function loginUser(req, res, next) {
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json("Wrong username or password")
     }
-        req.session = user;     //cookie skapas när req.session manipuleras
+        req.session = user;             //cookie skapas när req.session manipuleras
+        console.log(req.session);
         user.password = undefined; 
         res.status(200).json(user);
 }

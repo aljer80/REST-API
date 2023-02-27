@@ -7,7 +7,7 @@ const playerRouter = express.Router();
 
 //get, put, post, delete
 playerRouter.get("", getPlayers);
-playerRouter.get("/byLevel/:id", getPlayersByLevel);    //
+playerRouter.get("/byLevel/:id", getPlayersByLevel); 
 playerRouter.get("/:id", getPlayerById);
 
 playerRouter.put("/:id", userIsLoggedIn, userLoggedInAsAdmin, validate(productJoiSchema), updatePlayer); //Får felmeddelande som pekar på den här raden: "ReferenceError: userIsLoggedIn is not defined"

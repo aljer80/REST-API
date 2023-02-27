@@ -1,0 +1,40 @@
+GET http://localhost:3000/api/players 
+content-type: application/json
+
+###
+GET http://localhost:3000/api/players/byLevel/:id 
+content-type: application/json 
+
+###
+GET http://localhost:3000/api/players/:id
+
+###
+
+PUT http://localhost:3000/api/players/:id
+
+###
+
+POST http://localhost:3000/api/players 
+content-type: application/json
+
+###
+
+POST http://localhost:3000/api/players/register 
+content-type: application/json
+
+###
+
+POST http://localhost:3000/api/players/login 
+content-type: application/json
+
+###
+
+POST http://localhost:3000/api/players/logout 
+content-type: application/json
+
+###
+
+POST http://localhost:3000/api/players/:id 
+content-type: application/json
+
+###
