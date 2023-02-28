@@ -1,5 +1,6 @@
 const { PlayerModel } = require("../models/player.js");
-
+const { userJoiSchema } = require("../models/player.js");
+const bcrypt = require("bcrypt"); 
 
 //funktion för att skapa en spelare
 async function createPlayer (req, res, next) {
