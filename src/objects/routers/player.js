@@ -1,7 +1,7 @@
 const express = require("express");
 const playerRouter = express.Router();
 
-const { registerUser, loginUser, logoutUser } = require("../controllers/user.js");
+const { registerUser, loginUser, logoutUser } = require("../controllers/auth.js");
 const { createPlayer, deletePlayerById, updatePlayer, getPlayerById, getPlayers, getPlayersByLevel } = require("../controllers/player.js");
 const { userJoiSchema } = require ("../models/player.js");
 const { validate, userIsLoggedIn, userLoggedInAsAdmin } = require ("../../middlewares/middlewares.js"); 

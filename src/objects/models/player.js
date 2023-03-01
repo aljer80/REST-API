@@ -14,6 +14,15 @@ const PlayerSchema = new Schema({
 
 const PlayerModel = models.player || model("player", PlayerSchema);
 
+
+const LevelSchema = new Schema({
+    username: {type: String, required: true},
+    level: { type: Number, required: true, maxLength: 2}
+})
+
+const LevelModel = models.level || model("level", LevelSchema);
+
+
 const userJoiSchema = Joi.object({
     username: Joi.string().email().required(), 
     password: Joi.string().min(6).required(),   
@@ -26,4 +35,4 @@ const userJoiSchema = Joi.object({
 
 });
 
-module.exports = { PlayerModel, userJoiSchema };
+module.exports = { PlayerModel, LevelModel, userJoiSchema };

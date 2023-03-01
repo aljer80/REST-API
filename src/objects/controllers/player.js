@@ -2,6 +2,7 @@ const { PlayerModel } = require("../models/player.js");
 const { userJoiSchema } = require("../models/player.js");
 const bcrypt = require("bcrypt"); 
 
+
 //funktion för att skapa en spelare
 async function createPlayer (req, res, next) {
     try {
@@ -68,8 +69,7 @@ async function getPlayers(req, res, next) {
 //funktion för att hämta spelare via nivå
 async function getPlayersByLevel(req, res, next){
     try{
-        //const player = await UserModel.find({categories:req.params.id});
-        const players = await UserModel.find({level:req.params.id}); //level isf categories?
+        const players = await UserModel.find({level:req.params.level}); 
         res.status(200).json(players);
     } catch (error) {
         res.status(400).json(error);
@@ -77,4 +77,4 @@ async function getPlayersByLevel(req, res, next){
 };
 
 
-module.exports = { createPlayer, deletePlayerById, updatePlayer, getPlayerById, getPlayers, getPlayersByLevel };
+module.exports = { createPlayer, updatePlayer, deletePlayerById, getPlayerById, getPlayers, getPlayersByLevel };
