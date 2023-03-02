@@ -16,8 +16,7 @@ async function main() {
 
   await mongoose.connect(process.env.CONNECTION_STRING);
   
-  //"mongodb+srv://Alexandra:3DnB6NKrnqLEF6vr@cluster0.fomqwh0.mongodb.net/?retryWrites=true&w=majority"
-  //`mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.fomqwh0.mongodb.net/?retryWrites=true&w=majority`
+  
   app.listen(3000, () => console.log("The application is listening on port 3000!"));
 }
 
