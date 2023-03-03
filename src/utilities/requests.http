@@ -2,25 +2,25 @@ GET http://localhost:3000/api/players
 content-type: application/json
 
 ###
-GET http://localhost:3000/api/players/byLevel/:id 
+GET http://localhost:3000/api/players/byLevel/5
 content-type: application/json 
 
 ###
-GET http://localhost:3000/api/players/:id
+GET http://localhost:3000/api/players/640213ec8e50cc16b034bb3c
 
 ###
 
-PUT http://localhost:3000/api/players/63fdc702c3204204371a6762
+PUT http://localhost:3000/api/players/64022bff5f4fcdba4fee295d
 content-type: application/json
 
 {
-    "username": "jernberg.alexandra@gmail.com",
+     "username": "mio.testsson@mail.com",
     "password": "123456",
-    "firstname": "Alexandra",
-    "lastname": "Jernberg",
-    "gender": "female",
+    "firstname": "Mio",
+    "lastname": "Testsson",
+    "gender": "male",
     "side": "backhand",
-    "level": "6"
+    "level": "5"
 }
 ###
 
@@ -28,20 +28,26 @@ POST http://localhost:3000/api/players/register
 content-type: application/json
 
 {
-    "username": "minitest.testsson@gmail.com",
+    "username": "mio.testsson@mail.com",
     "password": "123456",
-    "firstname": "Minitest",
+    "firstname": "Mio",
     "lastname": "Testsson",
-    "gender": "female",
+    "gender": "male",
     "side": "backhand",
-    "level": "3"
+    "level": "7"
 }
+
 
 ###
 
-
-POST http://localhost:3000/api/players/login 
+POST http://localhost:3000/api/players/login
 content-type: application/json
+
+{
+    "username": "mio.testsson@mail.com",
+    "password": "123456"
+}
+
 
 ###
 
@@ -50,7 +56,7 @@ content-type: application/json
 
 ###
 
-POST http://localhost:3000/api/players/:id 
+DELETE  http://localhost:3000/api/players/640205b7206edf49af7ce95f
 content-type: application/json
 
 ###

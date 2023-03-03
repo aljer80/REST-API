@@ -2,7 +2,7 @@ const { PlayerModel } = require("../models/player.js");
 const bcrypt = require("bcrypt"); 
 
 //funktion för att registrera och skapa en användare/spelare och kryptera lösenordet
-async function registerUser(req, res, next) {
+async function registerPlayer(req, res, next) {
     try{ 
         const existingUser = await PlayerModel.findOne({username: req.body.username})
         if(existingUser) {
@@ -21,24 +21,26 @@ async function registerUser(req, res, next) {
 
 
 //funktion för att logga in
-async function loginUser(req, res, next) {
+async function loginPlayer(req, res, next) {
+    //console.log(req.body)
     const { username, password } = req.body;
+    console.log(username);
     const user = await PlayerModel.findOne({username});
-
+    //console.log(user);
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json("Wrong username or password")
     }
         req.session = user;             //cookie skapas när req.session manipuleras
-        console.log(req.session);
+        //console.log(req.session);
         user.password = undefined; 
         res.status(200).json(user);
 }
 
 //funktion för att logga ut
-async function logoutUser(req, res, next){
+async function logoutPlayer(req, res, next){
     req.session = null;
-    res.status(204).json();
+    res.status(204).json("You have successfully logged out");
 }
 
 
-module.exports = { registerUser, loginUser, logoutUser };
+module.exports = { registerPlayer, loginPlayer, logoutPlayer };

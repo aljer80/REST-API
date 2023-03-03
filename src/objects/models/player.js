@@ -9,18 +9,10 @@ const PlayerSchema = new Schema({
     lastname:{type: String, required: true},
     gender: {type: String, required: true},
     side: {type: String, required: true},
-    level: {type: Number, required: true}  //ändra till number? Matchiskalan     
+    level: {type: Number, required: true}    
 }); 
 
 const PlayerModel = models.player || model("player", PlayerSchema);
-
-
-const LevelSchema = new Schema({
-    username: {type: String, required: true},
-    level: { type: Number, required: true, maxLength: 2}
-})
-
-const LevelModel = models.level || model("level", LevelSchema);
 
 
 const userJoiSchema = Joi.object({
@@ -35,4 +27,5 @@ const userJoiSchema = Joi.object({
 
 });
 
-module.exports = { PlayerModel, LevelModel, userJoiSchema };
+
+module.exports = { PlayerModel, userJoiSchema };
