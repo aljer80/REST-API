@@ -9,6 +9,7 @@ async function createPlayer (req, res, next) {
         const newPlayer = await PlayerModel.create(req.body);
         res.status(201).json(newPlayer);      
     } catch (error) {
+        console.log(error.message);
         res.status(500).json();
     }   
 }
@@ -22,17 +23,15 @@ async function updatePlayer(req, res, next) {
             return res.status(404).json( "There is no player with id " + req.params.id)
         }
         const player = await PlayerModel.findByIdAndUpdate({_id:req.params.id}, req.body, {new: true});
-        
+        player.password =  await bcrypt.hash(req.body.password, 10);
+        await player.save();
+        player.password = undefined;
         res.status(200).json(player);
     } catch (error) {
+        console.log(error.message);
         res.status(500).json();
     }
 }
-        /* const user = await new PlayerModel(req.body);
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        user.password = hashedPassword;
-        await user.save();
-        user.password = undefined;  */ 
 
 
 //funktion för att radera en spelare
@@ -43,8 +42,9 @@ async function deletePlayerById(req, res, next){
             res.status(404).json( req.params.id + "not found")
         }
         const player = await PlayerModel.deleteOne({_id:req.params.id})
-        res.status(204).json(player + " deleted");
+        res.status(200).json("The selected player has been deleted");
     } catch (error) {
+        console.log(error.message);
         res.status(500).json();
     }
 }
@@ -52,12 +52,18 @@ async function deletePlayerById(req, res, next){
 
 //funktion för att hämta en specifik spelare
 async function getPlayerById(req, res, next){
-    const player = await PlayerModel.findOne({_id:req.params.id})
-    if (player) {
-        res.status(200).json(player); 
-    } else {
-        res.status(404).json("Player with id " + req.params.id + " not found");
+    try{
+        const player = await PlayerModel.findOne({_id:req.params.id})
+        if (player) {
+            res.status(200).json(player.firstname+ " " + player.lastname + ", " + player.side + ", " +"level " + player.level)
+        } else {
+            res.status(404).json("Player with id " + req.params.id + " was not found");
+        }
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json();
     }
+   
 };
 
 

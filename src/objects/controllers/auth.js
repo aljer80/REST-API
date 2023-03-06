@@ -22,16 +22,13 @@ async function registerPlayer(req, res, next) {
 
 //funktion för att logga in
 async function loginPlayer(req, res, next) {
-    //console.log(req.body)
     const { username, password } = req.body;
     console.log(username);
     const user = await PlayerModel.findOne({username});
-    //console.log(user);
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json("Wrong username or password")
     }
         req.session = user;             //cookie skapas när req.session manipuleras
-        //console.log(req.session);
         user.password = undefined; 
         res.status(200).json(user);
 }

@@ -10,7 +10,7 @@ const { validate, userIsLoggedIn, userLoggedInAsAdmin } = require ("../../middle
 //get, put, post, delete
 playerRouter.get("", getPlayers);  // ska man kunna hämta spelare utan att vara inloggad?
 playerRouter.get("/byLevel/:level", getPlayersByLevel);
-playerRouter.get("/:id", userLoggedInAsAdmin, getPlayerById); // userIsLoggedIn funkar när jag provar med den
+playerRouter.get("/:id", userIsLoggedIn, getPlayerById); // userIsLoggedIn funkar när jag provar med den
 
 playerRouter.put("/:id",userLoggedInAsAdmin, validate(userJoiSchema), updatePlayer);
 
