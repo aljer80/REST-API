@@ -46,8 +46,6 @@ Put funktionen tar emot parametrar för id, kön, nivå och hänthet.
 Delete
 Delete tar emot en id parameter för att radera den spelaren ur databasen.
 
-Webbklienten använder sig av API för att utföra alla dessa funktioner (WEBBKLIENTEN ÄR EJ BYGGD ÄN). I webbklienten används select inputs för att välja parametrar istället för textfält. Webbklienten använder sig även av fetch-funktionaliteten för att göra anropen. GET, med och utan ID samt DELETE fungerar felfritt medan POST och PUT har problem att assigna värden.
+Webbklienten använder sig av API för att utföra alla dessa funktioner (WEBBKLIENTEN ÄR EJ BYGGD ÄN). Webbklienten kommer använda sig av fetch-funktionaliteten för att göra anropen. 
 
-EJ KLAR HÄR
-Endpoints: localhost:3000//api/players ...
 
